@@ -73,7 +73,7 @@ export default function Store(props){
     const [allChats, dispatch] = React.useReducer(reducer, initialState);
 
     if(!socket){
-        socket = io();
+        socket = io('http://localhost');
         socket.on('chat message', function(msg){
             dispatch({type: 'RECEIVE_MSG',payload: msg});
         });
